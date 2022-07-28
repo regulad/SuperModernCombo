@@ -13,7 +13,7 @@
 
     <!--fixme-->
     <description>
-        A template for legacy (Minecraft&#60;=1.8.8) Minecraft plugins that use both Spigot, BungeeCord, as well as a
+        A template for modern (Minecraft&#60;=1.8.8) Minecraft plugins that use both Spigot, BungeeCord, as well as a
         common module.
     </description>
 

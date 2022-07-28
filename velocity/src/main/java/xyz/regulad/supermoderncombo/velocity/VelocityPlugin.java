@@ -30,7 +30,7 @@ import java.util.logging.Logger;
         id = "supermoderncombo",
         name = "SuperModernCombo",
         version = "1.0.0-SNAPSHOT",
-        description = "A template for legacy (Minecraft?=1.19.1) Minecraft plugins that use both Paper, Velocity, and a common module.",
+        description = "A template for modern (Minecraft?=1.19.1) Minecraft plugins that use both Paper, Velocity, and a common module.",
         authors = {"regulad"}
 )
 public class VelocityPlugin implements CommonAPI<Player> {
