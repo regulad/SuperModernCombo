@@ -1,4 +1,4 @@
-package xyz.regulad.superlegacycombo.velocity;
+package xyz.regulad.supermoderncombo.velocity;
 
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
@@ -14,8 +14,8 @@ import ninja.leaping.configurate.yaml.YAMLConfigurationLoader;
 import org.bstats.velocity.Metrics;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import xyz.regulad.superlegacycombo.common.api.CommonAPI;
-import xyz.regulad.superlegacycombo.common.db.MySQL;
+import xyz.regulad.supermoderncombo.common.api.CommonAPI;
+import xyz.regulad.supermoderncombo.common.db.MySQL;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -27,10 +27,10 @@ import java.util.logging.Logger;
 
 // fixme
 @Plugin(
-        id = "superlegacycombo",
-        name = "SuperLegacyCombo",
+        id = "supermoderncombo",
+        name = "SuperModernCombo",
         version = "1.0.0-SNAPSHOT",
-        description = "A template for legacy (Minecraft?=1.8.8) Minecraft plugins that use both Spigot, BungeeCord, as well as a common module.",
+        description = "A template for legacy (Minecraft?=1.19.1) Minecraft plugins that use both Paper, Velocity, and a common module.",
         authors = {"regulad"}
 )
 public class VelocityPlugin implements CommonAPI<Player> {
@@ -38,6 +38,7 @@ public class VelocityPlugin implements CommonAPI<Player> {
     private static @Nullable VelocityPlugin instance;
 
     @Inject
+    @Getter
     private @NotNull ProxyServer proxy;
     @Inject
     @Getter
@@ -67,7 +68,7 @@ public class VelocityPlugin implements CommonAPI<Player> {
 
     @Subscribe
     public void initializeMetrics(final @NotNull ProxyInitializeEvent proxyInitializeEvent) {
-        this.metrics = this.metricsFactory.make(this, 13899); // TODO: Replace this in your plugin!
+        this.metrics = this.metricsFactory.make(this, 15949); // TODO: Replace this in your plugin!
     }
 
     @Subscribe

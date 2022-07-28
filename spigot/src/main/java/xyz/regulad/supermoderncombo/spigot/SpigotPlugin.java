@@ -1,13 +1,14 @@
-package xyz.regulad.superlegacycombo.spigot;
+package xyz.regulad.supermoderncombo.spigot;
 
 import lombok.Getter;
-import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.Nullable;
-import xyz.regulad.superlegacycombo.common.api.CommonAPI;
-import xyz.regulad.superlegacycombo.common.db.MySQL;
+import xyz.regulad.supermoderncombo.common.api.CommonAPI;
+import xyz.regulad.supermoderncombo.common.db.MySQL;
+
+import java.util.Objects;
 
 public class SpigotPlugin extends JavaPlugin implements CommonAPI<Player> {
     @Getter
@@ -17,9 +18,6 @@ public class SpigotPlugin extends JavaPlugin implements CommonAPI<Player> {
     @Getter
     private @Nullable MySQL<Player> mySQL;
 
-    @Getter
-    private @Nullable BukkitAudiences bukkitAudiences;
-
     @Override
     public void onEnable() {
         // Setup instance access
@@ -27,18 +25,16 @@ public class SpigotPlugin extends JavaPlugin implements CommonAPI<Player> {
         CommonAPI.setInstance(this);
         // Setup config
         this.saveDefaultConfig();
-        // Setup adventure
-        this.bukkitAudiences = BukkitAudiences.create(this);
         // Setup bStats metrics
-        this.metrics = new Metrics(this, 13900); // TODO: Replace this in your plugin!
+        this.metrics = new Metrics(this, 15948); // TODO: Replace this in your plugin!
         // Setup MySQL
         if (this.getConfig().getBoolean("db.enabled", false)) {
             this.mySQL = new MySQL<>(
-                    this.getConfig().getString("db.host"),
+                    Objects.requireNonNull(this.getConfig().getString("db.host")),
                     this.getConfig().getInt("db.port"),
-                    this.getConfig().getString("db.database"),
-                    this.getConfig().getString("db.username"),
-                    this.getConfig().getString("db.password"),
+                    Objects.requireNonNull(this.getConfig().getString("db.database")),
+                    Objects.requireNonNull(this.getConfig().getString("db.username")),
+                    Objects.requireNonNull(this.getConfig().getString("db.password")),
                     this
             );
         }
@@ -53,11 +49,6 @@ public class SpigotPlugin extends JavaPlugin implements CommonAPI<Player> {
         // Discard instance access
         instance = null;
         CommonAPI.setInstance(null);
-        // Discard adventure
-        if (this.bukkitAudiences != null) {
-            this.bukkitAudiences.close();
-            this.bukkitAudiences = null;
-        }
         // Discard bStats metrics
         this.metrics = null;
         // Discard MySQL

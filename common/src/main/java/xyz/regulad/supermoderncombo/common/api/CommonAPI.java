@@ -1,10 +1,10 @@
-package xyz.regulad.superlegacycombo.common.api;
+package xyz.regulad.supermoderncombo.common.api;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import xyz.regulad.superlegacycombo.common.db.MySQL;
+import xyz.regulad.supermoderncombo.common.db.MySQL;
 
 import java.util.logging.Logger;
 

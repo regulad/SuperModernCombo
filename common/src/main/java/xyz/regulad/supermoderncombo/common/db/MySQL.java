@@ -1,4 +1,4 @@
-package xyz.regulad.superlegacycombo.common.db;
+package xyz.regulad.supermoderncombo.common.db;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import xyz.regulad.superlegacycombo.common.api.CommonAPI;
+import xyz.regulad.supermoderncombo.common.api.CommonAPI;
 
 import java.sql.Connection;
 import java.sql.SQLException;
