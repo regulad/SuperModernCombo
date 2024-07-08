@@ -68,7 +68,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>25.1-jre</version>
+            <version>33.2.1-jre</version>
             <scope>provided</scope>
         </dependency> <!--dep on velocity-->
         <dependency>
